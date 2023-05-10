@@ -3,7 +3,7 @@ import gradio
 #defining objets
 #CREATE A INPUT BOX FOR USERNAME
 # username = input();
-openai.api_key = "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"
+openai.api_key = "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"
 class Person:
     def __init__(self, id, fname, lname, last, balance, opening, orders, cross_sell):
         self.id = id
@@ -31,9 +31,11 @@ messages = [{"role": "system", "content": "You are a financial experts that spec
 ############################################################
 username = "todd"
 ##################################
-def CustomChatGPT(user_input):
+def CustomChatGPT(user_input, username):#
     user_input = user_input.lower()
+    username = username.lower()#
     messages.append({"role": "user", "content": user_input})
+    messages.append({"role": "user", "content": username})
     if username == "eric":
         if " id" in user_input:
             return f"{eric.id}"
@@ -62,7 +64,7 @@ def CustomChatGPT(user_input):
 
 
 
-    if username == "damien":
+    elif username == "damien":
         if " id" in user_input:
             return f"{damien.id}"
 
@@ -89,7 +91,7 @@ def CustomChatGPT(user_input):
             return f"{damien.orders}"
 
 
-    if username == "andrew":
+    elif username == "andrew":
         if " id" in user_input:
             return f"{andrew.id}"
 
@@ -117,7 +119,7 @@ def CustomChatGPT(user_input):
 
 
 
-    if username == "duane":
+    elif username == "duane":
         if " id" in user_input:
             return f"{duane.id}"
 
@@ -144,7 +146,7 @@ def CustomChatGPT(user_input):
             return f"{duane.orders}"
 
 
-    if username == "todd":
+    elif username == "todd":
         if " id" in user_input:
             return f"{todd.id}"
 
@@ -171,7 +173,7 @@ def CustomChatGPT(user_input):
             return f"{todd.orders}"
 
 
-    if username == "maria":
+    elif username == "maria":
         if " id" in user_input:
             return f"{maria.id}"
 
@@ -199,7 +201,7 @@ def CustomChatGPT(user_input):
 
 
 
-    if username == "carlos":
+    elif username == "carlos":
         if " id" in user_input:
             return f"{carlos.id}"
 
@@ -225,6 +227,31 @@ def CustomChatGPT(user_input):
         if "order" in user_input:
             return f"{carlos.orders}"
 
+    else:
+        if " id" in user_input:
+            return f"User not found"
+
+        if "first name" in user_input:
+            return f"User not found"
+
+        if "last name" in user_input:
+            return f"User not found"
+
+        if "last transaction" in user_input:
+            return f"User not found"
+
+        if "account balance" in user_input:
+            return f"User not found"
+
+        if "opening date" in user_input:
+            return f"User not found"
+
+        #code for products
+        if "cross sell" in user_input:
+            return f"User not found"
+
+        if "order" in user_input:
+            return f"User not found"
 
 
 
@@ -249,6 +276,6 @@ def CustomChatGPT(user_input):
     messages.append({"role": "assistant", "content": ChatGPT_reply})
     return ChatGPT_reply
 
-demo = gradio.Interface(fn=CustomChatGPT, inputs = "text", outputs = "text", title = "Chatbot")
+demo = gradio.Interface(fn=CustomChatGPT, inputs = ["text", "text"], outputs = "text", title = "Chatbot")
 
 demo.launch(share=True)
