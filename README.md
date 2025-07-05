@@ -130,6 +130,31 @@ npm run docker:down
 - **Backend API** (port 3001) - NestJS application
 - **Frontend** (port 3000) - Next.js application
 
+## 🌐 Netlify Deployment
+
+Deploy your application to production using Netlify (frontend) + Railway (backend):
+
+### Option 1: Quick Deploy (9 minutes)
+```bash
+# Prepare for Netlify deployment
+./deploy-netlify.sh
+
+# Then follow the prompts!
+```
+
+### Option 2: Manual Steps
+1. **Backend**: Deploy to [Railway](https://railway.app) with PostgreSQL + Redis
+2. **Frontend**: Deploy to [Netlify](https://netlify.com) with static export
+
+📚 **Detailed Guides**:
+- [QUICK_DEPLOY.md](./QUICK_DEPLOY.md) - 3-step deployment guide (9 minutes)
+- [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md) - Comprehensive deployment guide
+
+### Free Tier Hosting
+- ✅ **Netlify**: 100GB bandwidth/month (free)
+- ✅ **Railway**: $5 credit monthly (free)
+- ✅ **Total Cost**: $0/month for small applications
+
 ## 🛠️ Development Setup
 
 ### Prerequisites

@@ -2,21 +2,30 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'standalone',
+  
+  // Use static export for Netlify deployment
+  output: process.env.NODE_ENV === 'production' ? 'export' : 'standalone',
+  trailingSlash: true,
+  images: {
+    unoptimized: true, // Required for static export
+  },
   
   // Environment variables
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
   },
 
-  // API rewrites for development
+  // API rewrites for development only
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
-      },
-    ];
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`,
+        },
+      ];
+    }
+    return [];
   },
 
   // Headers for security
@@ -53,15 +62,9 @@ const nextConfig = {
     return config;
   },
 
-  // Image domains for optimization
-  images: {
-    domains: ['localhost'],
-    formats: ['image/webp', 'image/avif'],
-  },
-
-  // Experimental features
+  // Disable experimental features for static export
   experimental: {
-    typedRoutes: true,
+    // typedRoutes: true, // Disabled for static export
   },
 };
 
