@@ -3,6 +3,12 @@
 .env.local
 .env.production
 .env.*.local
+.env.netlify.generated
+
+# Netlify
+.netlify/
+netlify/functions/node_modules/
+netlify/functions/dist/
 
 # Dependencies
 node_modules/

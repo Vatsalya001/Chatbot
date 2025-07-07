@@ -220,7 +220,36 @@ docker volume prune -f                  # Clean up unused volumes
 
 ## 🚀 Cloud Deployment Options
 
-### 1. AWS EC2 Deployment
+### 1. Netlify Deployment (JAMstack/Serverless) 🌟 **Recommended for Most Users**
+
+**Perfect for:** Small to medium projects, rapid deployment, zero maintenance
+
+- ✅ **Zero server management** - Complete serverless architecture
+- ✅ **Global CDN** - Lightning-fast static asset delivery
+- ✅ **Automatic scaling** - Scales from 0 to millions of users
+- ✅ **Free tier available** - Start for free, pay as you grow
+- ✅ **Simple deployment** - Deploy with Git push
+
+**📚 Complete Guide:** See [NETLIFY_DEPLOYMENT.md](NETLIFY_DEPLOYMENT.md)
+
+**Quick Start:**
+```bash
+# 1. Set up external services (Supabase + Upstash)
+# 2. Push to GitHub
+# 3. Connect to Netlify
+# 4. Configure environment variables
+# 5. Deploy automatically
+```
+
+**Cost:** $0 - $150/month (depending on traffic)
+
+---
+
+### 2. Traditional VPS/Server Deployment
+
+**Perfect for:** Large projects, custom infrastructure needs, full control
+
+### 2.1. AWS EC2 Deployment
 
 1. **Launch EC2 instance** (t3.medium or larger)
 2. **Configure Security Groups** (ports 22, 80, 443)
@@ -228,23 +257,40 @@ docker volume prune -f                  # Clean up unused volumes
 4. **Configure Route 53** for domain management
 5. **Set up Application Load Balancer** for HA
 
-### 2. DigitalOcean Droplet
+### 2.2. DigitalOcean Droplet
 
 1. **Create Droplet** (2GB RAM minimum)
 2. **Follow server setup steps above**
 3. **Configure DNS** in DigitalOcean panel
 4. **Set up floating IP** for static addressing
 
-### 3. Google Cloud Platform
+### 2.3. Google Cloud Platform
 
 1. **Create Compute Engine instance**
 2. **Configure firewall rules**
 3. **Follow server setup steps above**
 4. **Set up Cloud DNS** for domain management
 
-### 4. Kubernetes Deployment
+### 2.4. Kubernetes Deployment
 
 See the `/k8s` directory for Kubernetes manifests and Helm charts.
+
+---
+
+## 🤔 Which Deployment Option Should I Choose?
+
+| Feature | Netlify (Serverless) | VPS/Server |
+|---------|---------------------|------------|
+| **Setup Time** | 15 minutes | 1-2 hours |
+| **Maintenance** | Zero | Regular updates needed |
+| **Scaling** | Automatic | Manual configuration |
+| **Cost (small project)** | Free | $20-50/month |
+| **Cost (large project)** | $50-150/month | $100-500/month |
+| **Technical Expertise** | Beginner-friendly | Intermediate-Advanced |
+| **Database** | External (Supabase) | Self-hosted PostgreSQL |
+| **Customization** | Limited to serverless | Full control |
+
+**💡 Recommendation:** Start with Netlify for ease of use, switch to VPS later if you need more control.
 
 ## 🔐 Security Considerations
 

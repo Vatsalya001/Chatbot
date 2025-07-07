@@ -1,0 +1,25 @@
+{
+  "name": "comment-app-netlify-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Comment App",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^2.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.11.3",
+    "redis": "^4.6.10",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/pg": "^8.10.7",
+    "typescript": "^5.2.0"
+  }
+}
